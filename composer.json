@@ -23,7 +23,7 @@
         ,
         "twig/twig": ">=2.10.0"
         ,
-        "didrive/base": ">=0.1.1",        
+        "didrive/base": ">=0.1.1"
         
     }
     ,
