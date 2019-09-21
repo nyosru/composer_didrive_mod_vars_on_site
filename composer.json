@@ -18,13 +18,13 @@
     "homepage": "https://uralweb.info/php/#classes",
     "license": "MIT",
     "require": {
-        
+
         "php": ">=7.1.0"
         ,
         "twig/twig": ">=2.10.0"
         ,
         "didrive/base": ">=0.1.1"
-        
+
     }
     ,
     "autoload": {
