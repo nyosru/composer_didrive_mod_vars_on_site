@@ -1,19 +1,43 @@
 <?php
 
+//echo '<br/>';
+//echo '<br/>';
+//echo '<br/>';
+//echo '<br/>';
+//echo '<br/>';
+//echo '<br/>';
+//echo '<br/>';
+//    \f\pa($_POST);
+//    \f\pa($_FILES);
 
+if (isset($_POST['edit']) && $_POST['edit'] == 'ok' && (!empty($_POST['new_val']) || !empty($_FILES['new_file']['name']) ) && !empty($_POST['name'])) {
 
+    \Nyos\mod\VarsOnSite::addVar($db
+            , $_POST['name']
+            , ( $_FILES['new_file']['name'] ?? $_POST['new_val'])
+            , ( $_FILES['new_file'] ?? [])
+    );
+    $vv['warn'] = 'переменная изменена';
 
+} elseif (isset($_POST['add_var']) && $_POST['add_var'] == 'ok' && !empty($_POST['var_name_new'])) {
 
+    \Nyos\mod\VarsOnSite::addVar($db
+            , $_POST['var_name_new']
+            , ( $_POST['var_text'] ?? $_FILES['var_file']['name'])
+            , ( $_FILES['var_file'] ?? [])
+    );
+    $vv['warn'] = 'переменная добавлена';
+} elseif (isset($_GET['del_val']{1})) {
 
+    \Nyos\mod\VarsOnSite::deleteVar($db, $_GET['del_val']);
+    $vv['warn'] = 'переменная (' . $_GET['del_val'] . ') очищена';
+}
+
+//echo __FILE__;
 //        $s = $db->prepare('SELECT sql FROM `sqlite_master` WHERE `name` = :table LIMIT 1 ');
 //        $s->execute( array( ':table' => $table ) );
 //        $r = $s->fetchAll();
 //        \f\pa($r);
-
-
-
-
-
 //
 //// echo '<br/>'.__FILE__.' ('.__LINE__.')';
 //
@@ -135,4 +159,4 @@ $vv['krohi'][1] = array(
 //$vv['list'] = \Nyos\mod\items::getItems( $db, $vv['folder'], $vv['now_level']['cfg.level'], null);
 //\f\pa($vv['list']);
 
-$vv['tpl_body'] = \f\like_tpl('body', dir_mods_mod_vers_didrive_tpl,  dir_site_module_nowlev_tpldidr, DR );
+$vv['tpl_body'] = \f\like_tpl('body', dir_mods_mod_vers_didrive_tpl, dir_site_module_nowlev_tpldidr, DR);
