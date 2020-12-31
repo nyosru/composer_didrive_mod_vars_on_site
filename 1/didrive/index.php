@@ -12,6 +12,8 @@
 
 if (isset($_POST['edit']) && $_POST['edit'] == 'ok' && (!empty($_POST['new_val']) || !empty($_FILES['new_file']['name']) ) && !empty($_POST['name'])) {
 
+    //echo '<Br/>'.__FILE__.' #'.__LINE__;
+    
     \Nyos\mod\VarsOnSite::addVar($db
             , $_POST['name']
             , ( $_FILES['new_file']['name'] ?? $_POST['new_val'])
@@ -19,7 +21,9 @@ if (isset($_POST['edit']) && $_POST['edit'] == 'ok' && (!empty($_POST['new_val']
     );
     $vv['warn'] = 'переменная изменена';
 
-} elseif (isset($_POST['add_var']) && $_POST['add_var'] == 'ok' && !empty($_POST['var_name_new'])) {
+} 
+//
+elseif (isset($_POST['add_var']) && $_POST['add_var'] == 'ok' && !empty($_POST['var_name_new'])) {
 
     \Nyos\mod\VarsOnSite::addVar($db
             , $_POST['var_name_new']
@@ -27,7 +31,9 @@ if (isset($_POST['edit']) && $_POST['edit'] == 'ok' && (!empty($_POST['new_val']
             , ( $_FILES['var_file'] ?? [])
     );
     $vv['warn'] = 'переменная добавлена';
-} elseif (isset($_GET['del_val']{1})) {
+} 
+//
+elseif (isset($_GET['del_val']{1})) {
 
     \Nyos\mod\VarsOnSite::deleteVar($db, $_GET['del_val']);
     $vv['warn'] = 'переменная (' . $_GET['del_val'] . ') очищена';

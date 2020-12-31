@@ -1,7 +1,7 @@
 {
     "name": "didrive_mod/vars_on_site",
     "description": "переменные на сайт",
-    "version": "0.0.3",
+    "version": "1.0.0",
     
     "keywords": [
         "didrive", "module", "nyos", "uralweb.info"

@@ -59,7 +59,7 @@ class VarsOnSite {
 
         $ff = $db->prepare('DELETE FROM `didrive_vars` WHERE ( `folder` = :folder OR `folder` IS NULL ) AND `name` = :name ');
         $ff->execute(array(':folder' => \Nyos\Nyos::$folder_now, ':name' => $indb['name']));
-        $res = $ff->fetchAll();
+        // $res = $ff->fetchAll();
 
         if (!empty($file['tmp_name']) && isset($file['size']) && $file['size'] > 0 && isset($file['error']) && $file['error'] == 0) {
 
@@ -127,7 +127,7 @@ class VarsOnSite {
 
 
             $cash = self::getCash();
-            if ($cash !== false)
+            if ( isset($cash) && $cash !== false)
                 return $cash;
 
             $ff = $db->prepare('SELECT * FROM `didrive_vars` WHERE `folder` = :folder OR `folder` IS NULL ');
