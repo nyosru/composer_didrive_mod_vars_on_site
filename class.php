@@ -121,10 +121,8 @@ class VarsOnSite {
 
         try {
 
-
 //                $ff = $db->prepare('DROP TABLE `didrive_vars` ;');
 //                $ff->execute();
-
 
             $cash = self::getCash();
             if ( isset($cash) && $cash !== false)
@@ -159,7 +157,7 @@ class VarsOnSite {
             . PHP_EOL . $ex->getTraceAsString()
             . '</pre>';
 
-            if (strpos($ex->getMessage(), 'no such table: didrive_vars') !== false) {
+            if ( strpos($ex->getMessage(), 'not found') !== false && strpos($ex->getMessage(), 'didrive_vars') !== false ) {
 
                 $ff = $db->prepare('CREATE TABLE `didrive_vars` ( 
                         `folder` VARCHAR(50), 
