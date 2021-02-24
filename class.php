@@ -6,8 +6,9 @@
 
 namespace Nyos\mod;
 
-if (!defined('IN_NYOS_PROJECT'))
-    throw new \Exception('Сработала защита от розовых ха+1керов, обратитесь к администрратору');
+//if (!defined('IN_NYOS_PROJECT'))
+//    throw new \Exception('Сработала защита от розовых ха+1керов, обратитесь к администрратору');
+
 
 class VarsOnSite {
 
